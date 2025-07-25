@@ -6,11 +6,15 @@
   <title>Restaurant Order Checkout</title>
   <link rel="stylesheet" href="stylesheet.css">
 </head>
+<div id="loading-spinner" style="display: none;">
+  <div class="spinner"></div>
+</div>
+
 <body>
       <div class="header-wrapper">
       <header>
         <div class="logo"><h1>Ntachiosa</h1></div>
-        <input type="checkbox" class="menu toggle" id="menu toggle" />
+        <input type="checkbox" class="menu-toggle" id="menu-toggle" />
         <label
           for="menu toggle"
           class="hamburger"
@@ -30,45 +34,55 @@
 
 <h1>Restaurant Menu</h1>
 
+  <!-- CATEGORY NAVIGATION -->
+  <div class="category-nav">
+    <button class="active" onclick="showCategory('all')">All</button>
+    <button onclick="showCategory('soup')">Soups</button>
+    <button onclick="showCategory('rice')">Rice Dishes</button>
+    <button onclick="showCategory('grilled')">Grilled</button>
+    <button onclick="showCategory('swallow')">Swallow & Soups</button>
+  </div>
+
+ <!-- MENU ITEMS -->
 <div class="main-container">
   <!-- Menu Section -->
   <div class="d-container">
-    <div class="dish">
+    <div class="dish" data-category="soup">
       <img src="pepper_soup.jpg" alt="Pepper Soup">
       <h3>Pepper Soup</h3>
       <p>Assorted Meat</p>
       <p>Price: $8.00</p>
       <button onclick="addToOrder('Pepper Soup', 8, 'pepper_soup.jpg')">Add to Order</button>
     </div>
-    <div class="dish">
+    <div class="dish" data-category="grilled">
       <img src="suya.jpg" alt="Suya">
       <h3>Suya</h3>
       <p>Spicy grilled beef</p>
       <p>Price: $10.00</p>
       <button onclick="addToOrder('Suya', 10, 'suya.jpg')">Add to Order</button>
     </div>
-    <div class="dish">
+    <div class="dish" data-category="rice">
       <img src="rice and beans.jpg" alt="Rice and Beans">
       <h3>Rice & Beans</h3>
       <p>With fried plantain</p>
       <p>Price: $7.50</p>
       <button onclick="addToOrder('Rice & Beans', 7.5, 'rice and beans.jpg')">Add to Order</button>
     </div>
-    <div class="dish">
+    <div class="dish" data-category="rice">
       <img src="White-Rice-Stew.jpg" alt="White Rice & Stew">
       <h3>White Rice & Stew</h3>
       <p>With beef stew</p>
       <p>Price: $7.00</p>
       <button onclick="addToOrder('White Rice & Stew', 7, 'White-Rice-Stew.jpg')">Add to Order</button>
     </div>
-    <div class="dish">
+    <div class="dish" data-category="rice">
       <img src="jollof_rice.jpg" alt="Jollof Rice">
       <h3>Jollof Rice</h3>
       <p>Classic party style</p>
       <p>Price: $9.00</p>
       <button onclick="addToOrder('Jollof Rice', 9, 'jollof_rice.jpg')">Add to Order</button>
     </div>
-    <div class="dish">
+    <div class="dish" data-category="swallow">
       <img src="Egusi.jpg" alt="Egusi Soup">
       <h3>Egusi Soup</h3>
       <p>With pounded yam</p>
@@ -119,6 +133,17 @@
   </div>
 
 </div>
+<!-- Receipt Modal -->
+<div id="receipt-modal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeModal()">&times;</span>
+    <div id="receipt-preview">
+      <!-- Receipt content will be injected here -->
+    </div>
+    <button onclick="printReceipt()">🖨️ Print Receipt</button>
+  </div>
+</div>
+
 <script src="script.js"></script>
 </body>
 </html>
