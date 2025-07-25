@@ -7,6 +7,26 @@
   <link rel="stylesheet" href="stylesheet.css">
 </head>
 <body>
+      <div class="header-wrapper">
+      <header>
+        <div class="logo"><h1>Ntachiosa</h1></div>
+        <input type="checkbox" class="menu toggle" id="menu toggle" />
+        <label
+          for="menu toggle"
+          class="hamburger"
+          aria-label="Toggle navigation menu"
+          ><span></span><span></span><span></span
+        ></label>
+        <nav class="nav-items">
+          <a href="index.html">Home</a>
+          <a href="order.html">Services</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+          <a href="#resources">Resources</a>
+        </nav>
+      </header>
+    </div>
+
 
 <h1>Restaurant Menu</h1>
 
@@ -60,13 +80,44 @@
   <!-- Checkout Section -->
   <div class="c-container">
     <h2>Checkout</h2>
+      <div id="checkout-content">
     <div id="checkout"></div>
     <div class="totals">
       <p><strong>Subtotal:</strong> $<span id="subtotal">0.00</span></p>
       <p><strong>Discount (10%):</strong> $<span id="discount">0.00</span></p>
       <p><strong>Total:</strong> $<span id="total">0.00</span></p>
     </div>
+    <h2>Payment Details</h2>
+
+<form id="payment-form" onsubmit="return submitPayment(event)">
+  <label for="customer-name">Customer Name:</label><br>
+  <input type="text" id="customer-name" name="customer-name" required><br><br>
+
+  <label for="payment-method">Select Payment Method:</label><br>
+  <select id="payment-method" name="payment-method" onchange="toggleCardFields()" required>
+    <option value="">--Select--</option>
+    <option value="card">Credit / Debit Card</option>
+    <option value="cash">Cash</option>
+    <option value="mobile">Mobile Payment</option>
+  </select><br><br>
+
+  <div id="card-fields" style="display: none;">
+    <label for="card-number">Card Number:</label><br>
+    <input type="text" id="card-number" name="card-number" maxlength="16"><br><br>
+
+    <label for="expiry">Expiry Date:</label><br>
+    <input type="month" id="expiry" name="expiry"><br><br>
+
+    <label for="cvv">CVV:</label><br>
+    <input type="password" id="cvv" name="cvv" maxlength="4"><br><br>
   </div>
+
+  <button type="submit">Pay Now</button>
+</form>
+<button onclick="startNewOrder()">➕ Start New Order</button>
+</div>
+  </div>
+
 </div>
 <script src="script.js"></script>
 </body>

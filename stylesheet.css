@@ -243,7 +243,7 @@ h1 {
 .d-container {
   display: flex;
   flex-wrap: wrap;
-  flex-direction: column;
+  flex-direction: row;
   width: 80%;
   padding: 2rem;
   gap: 20px;
@@ -251,11 +251,13 @@ h1 {
 .dish {
     display: flex;
   border: 2px solid var(--neutral-dark);
-  height: 200px;
   flex-direction: column;
   justify-content: center;
     border-radius: 50px;
     background-color: var(--off-white);
+    border-color: #a71e1e;
+    width: 300px;
+    height: 300px;
 }
 
 .dish img {
@@ -282,6 +284,8 @@ h1 {
       width: 35%;
       border-left: 2px solid #444;
       padding-left: 20px;
+        display: none; /* 🔹 Hide it initially */
+
     }
 
         .checkout-item {
@@ -290,6 +294,8 @@ h1 {
       margin-bottom: 10px;
       border-bottom: 1px solid #eee;
       padding-bottom: 10px;
+      background: linear-gradient( #b58c5e);
+
     }
     .checkout-item img {
       width: 50px;
@@ -372,6 +378,26 @@ h1 {
 }
 
 
+@media print {
+  body * {
+    visibility: hidden;
+  }
+
+  .c-container, .c-container * {
+    visibility: visible;
+  }
+
+  .c-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+
+  button {
+    display: none; /* Hide buttons during print */
+  }
+}
 
 
 

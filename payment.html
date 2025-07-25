@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Payment Details</h2>
+
+<form id="payment-form" onsubmit="return submitPayment(event)">
+  <label for="customer-name">Customer Name:</label><br>
+  <input type="text" id="customer-name" name="customer-name" required><br><br>
+
+  <label for="payment-method">Select Payment Method:</label><br>
+  <select id="payment-method" name="payment-method" onchange="toggleCardFields()" required>
+    <option value="">--Select--</option>
+    <option value="card">Credit / Debit Card</option>
+    <option value="cash">Cash</option>
+    <option value="mobile">Mobile Payment</option>
+  </select><br><br>
+
+  <div id="card-fields" style="display: none;">
+    <label for="card-number">Card Number:</label><br>
+    <input type="text" id="card-number" name="card-number" maxlength="16"><br><br>
+
+    <label for="expiry">Expiry Date:</label><br>
+    <input type="month" id="expiry" name="expiry"><br><br>
+
+    <label for="cvv">CVV:</label><br>
+    <input type="password" id="cvv" name="cvv" maxlength="4"><br><br>
+  </div>
+
+  <button type="submit">Pay Now</button>
+</form>
+<script src="script.js"></script>
+</body>
+</html>
