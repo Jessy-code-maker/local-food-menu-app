@@ -1,0 +1,446 @@
+/*universal style*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/*CSS variable*/
+:root {
+  --background: #fbe8d3;
+  --text-dark: #2c2c2c; /*Main text*/
+  --text-light: #fff8f0; /*headers or Text on dark backgrounds*/
+  --link: #ffc300; /*call to action highlights,Calls to action, price tags*/
+  --primary: #f55a00; /*button,header,key ui element,	Hero background, headers, buttons */
+  --secondary: #a71e1e; /*sec. btn, category highlights,	Tags, alternate buttons*/
+  --accent: #3b7a57; /*indicators, UI indicators, hover effects*/
+  --neutral-dark: #1f1f1f; /*Clean text contrast, modern headers on light backgrounds*/
+  --off-white: #fffaf3; /*Light cards, panels, or backgrounds for text-heavy sections*/
+  --fresh-green: #a3c653; /*Freshness, health, and nature,	Backgrounds, buttons, or highlights*/
+  --overlay: rgba(245, 90, 0, 0.8), rgba(167, 30, 30, 0.6); /*creates a warm-to-deep overlay, perfect for food imagery like suya, jollof rice, soups, etc.*/
+  --overlay_2: rgba(59, 122, 87, 0.7), rgba(255, 195, 0, 0.5);
+  --overlay_3: rgba(44, 44, 44, 0.85), rgba(167, 30, 30, 0.7); /* Charcoal Pepper – very dark, neutral base */ /*for a more vibrant and appetizing effect*/
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color:var(--background);
+  color: var(--text-dark);
+}
+
+/*HEADER*/
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  background-color: var(--primary);
+  color: var(--text-light);
+  border-radius: 1rem;
+}
+
+.header-wrapper {
+  padding: 0.125rem;
+  background-color: var(--accent);
+}
+/*NAVIGATION LINK*/
+.nav-items {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.nav-items a {
+  text-decoration: none;
+  color: var(--text-light);
+}
+
+.nav-items a:hover {
+  text-decoration: underline;
+  color: var(--text-dark);
+}
+
+.hamburger {
+  display: none;
+  cursor: pointer;
+  color: var(--link);
+}
+
+.hamburger span {
+  display: none;
+}
+
+.menu-toggle {
+  display: none;
+}
+
+.menu-toggle:checked + .hamburger span:nth-child(1) {
+  transform: rotate(45deg);
+  top: 14px;
+}
+
+.menu-toggle:checked + .hamburger span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle:checked + .hamburger span:nth-child(3) {
+  transform: rotate(-45deg);
+  top: 14px;
+}
+
+/*HERO-SECTION*/
+.hero-section {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  color: var(--text-dark);
+  padding: 80px 5%;
+  position: relative;
+  height: 90vh;
+  background: linear-gradient( 135deg,var(--primary) 0%,var(--accent) 60%,var(--background) 100%);
+  animation: slide-in 1s ease-in-out;
+}
+
+.hero-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(44, 44, 44, 0.4); /* optional dark overlay */
+  z-index: 0; /* push it behind content */
+}
+.hero {
+  position: relative;
+  z-index: 1; /* bring text above the overlay */
+  max-width: 600px;
+  color: var(--text-light);
+  animation: fade-in 4s ease; ;
+}
+
+.hero-btn {
+ display: flex;
+ align-items: center;
+ padding: 10px;
+}
+
+.menu-btn, .order-btn, .dish-button {
+margin: 0.375rem;
+  display: flex;
+  border-radius: 20px;
+  font-weight: bold;
+  padding: 12px 28px;
+}
+
+.dish-button,
+.order-btn {
+  background-color: var(--link);
+  color: var(--text-dark);
+}
+
+.dish-button:hover,
+.order-btn:hover {
+  background-color: var(--primary);
+  color: var(--text-light);
+  transition: color 0.3s ease;
+}
+
+.menu-btn {
+  background-color: transparent;
+  border: 2px solid #ffff;
+  color: var(--text-light);
+}
+
+.menu-btn:hover {
+  background-color: var(--background);
+  border: none;
+  color: var(--text-dark);
+  transition: border 0.3s color 0.3s;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+
+.hero-image {
+  position: relative;
+  width: 500px;
+  height: 400px;
+}
+
+.plate {
+  position: absolute;
+}
+
+.bubble {
+  position: absolute;
+  bottom: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff;
+  padding: 6px 14px;
+  font-size: 13px;
+  border-radius: 20px;
+  box-shadow: #3b7a57;
+  white-space: nowrap;
+}
+
+.plate1 {
+  top: 10%;
+  right: 30%;
+  animation: animate 3s infinite ease-in-out;
+}
+.plate2 {
+  top: 10%;
+  right: 7%;
+  animation: animate 3s infinite ease-in-out;
+}
+
+.plate3 {
+  bottom: 20%;
+  right: 30%;
+  animation: animate 3s infinite ease-in-out;
+}
+
+.plate img {
+  width: 250px;
+  border-radius: 50%;
+  box-shadow: 0 4px 20px rgba(44, 44, 44, 0.85);
+}
+
+/*Features section*/
+.f-container {
+  display: flex;
+  flex-direction: row;
+  gap: 100px;
+  padding: 50px;
+}
+
+.f-1, .f-2, .f-3 {
+  display: flex;
+  border: 2px solid var(--neutral-dark);
+  height: 200px;
+  flex-direction: column;
+  justify-content: center;
+    border-radius: 50px;
+    background-color: var(--fresh-green);
+
+}
+
+.features p,
+.features h2,
+.f-container h3 {
+  display: flex;
+  justify-content: center;
+}
+
+/* dish section*/
+.d-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  width: 80%;
+  padding: 2rem;
+  gap: 20px;
+}
+.dish {
+    display: flex;
+  border: 2px solid var(--neutral-dark);
+  height: 200px;
+  flex-direction: column;
+  justify-content: center;
+    border-radius: 50px;
+    background-color: var(--off-white);
+}
+
+.dish img {
+  height: 100px;
+}
+
+.dish-text {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+}
+
+
+/*ANIMATION*/
+@keyframes animate {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-5px) scale(1.05);
+  }
+  0% {
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes slide-in {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 
+.hero {
+  position: relative;
+  background-color: #e3f2fd;
+  padding: 100px 20px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.hero-bottom-image {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  z-index: 1;
+} */
+
+/* body {
+      margin: 0;
+      font-family: sans-serif;
+    }
+
+    .hero {
+      position: relative;
+      background-color: #f5f5f5;
+      padding: 100px 20px;
+      text-align: center;
+    }
+
+    .hero-bottom-edge {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: auto;
+      z-index: 2;
+    }
+
+    .content {
+      padding: 80px 20px;
+      background-color: #fff;
+    } */
+
+/* .hero {
+  border: 20px solid transparent;
+  padding: 60px 40px;
+  text-align: center;
+  background-color: #fff;
+
+  /* Image border */
+/* border-image: url('pepper_soup.jpg') 30 round;
+} */
+
+/* .hero-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.hero {
+  padding: 80px;
+  background-color: #f9f9f9;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+} */
+
+/* Decorative border images */
+/* .border-img {
+  position: absolute;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.border-top {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+}
+
+.border-bottom {
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+}
+
+.border-left {
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: auto;
+}
+
+.border-right {
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: auto;
+} 
+
+
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 80px 10%;
+  
+
+.hero-text {
+  flex: 1;
+  max-width: 500px;
+}*/
+
+
+
+
+
+
