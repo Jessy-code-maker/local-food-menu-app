@@ -1,20 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="stylesheet.css">
-    <title>submit order</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Restaurant Order Checkout</title>
+  <link rel="stylesheet" href="stylesheet.css">
 </head>
 <body>
-    <div class="d-container">
-        <div class="dish dish-1"><img src="pepper_soup.jpg" alt="" width="200px"><div class="dish-text"><h2>pepper soup</h2><p>assorted meat</p><button class="dish-button">submit</button></div></div>
-        <div class="dish dish-2"><img src="suya.jpg" alt="" width="200px"><div class="dish-text"><h2>pepper soup</h2><p>assorted meat</p><button class="dish-button">submit</button></div></div>
-        <div class="dish  dish-3"><img src="rice and beans.jpg" alt="" width="200px"><div class="dish-text"><h2>pepper soup</h2><p>assorted meat</p><button class="dish-button">submit</button></div></div>
-        <div class="dish dish-4"><img src="White-Rice-Stew.jpg" alt="" width="200px"><div class="dish-text"><h2>pepper soup</h2><p>assorted meat</p><button class="dish-button">submit</button></div></div>
-        <div class="dish dish-5"><img src="jollof_rice.jpg" alt="" width="200px"><div class="dish-text"><h2>pepper soup</h2><p>assorted meat</p><button class="dish-button">submit</button></div></div>
-        <div class="dish dish-6"><img src="Egusi.jpg" alt="" width="200px"><div class="dish-text"><h2>pepper soup</h2><p>assorted meat</p><button class="dish-button">submit</button></div></div>
 
-     </div>
+<h1>Restaurant Menu</h1>
+
+<div class="main-container">
+  <!-- Menu Section -->
+  <div class="d-container">
+    <div class="dish">
+      <img src="pepper_soup.jpg" alt="Pepper Soup">
+      <h3>Pepper Soup</h3>
+      <p>Assorted Meat</p>
+      <p>Price: $8.00</p>
+      <button onclick="addToOrder('Pepper Soup', 8, 'pepper_soup.jpg')">Add to Order</button>
+    </div>
+    <div class="dish">
+      <img src="suya.jpg" alt="Suya">
+      <h3>Suya</h3>
+      <p>Spicy grilled beef</p>
+      <p>Price: $10.00</p>
+      <button onclick="addToOrder('Suya', 10, 'suya.jpg')">Add to Order</button>
+    </div>
+    <div class="dish">
+      <img src="rice and beans.jpg" alt="Rice and Beans">
+      <h3>Rice & Beans</h3>
+      <p>With fried plantain</p>
+      <p>Price: $7.50</p>
+      <button onclick="addToOrder('Rice & Beans', 7.5, 'rice and beans.jpg')">Add to Order</button>
+    </div>
+    <div class="dish">
+      <img src="White-Rice-Stew.jpg" alt="White Rice & Stew">
+      <h3>White Rice & Stew</h3>
+      <p>With beef stew</p>
+      <p>Price: $7.00</p>
+      <button onclick="addToOrder('White Rice & Stew', 7, 'White-Rice-Stew.jpg')">Add to Order</button>
+    </div>
+    <div class="dish">
+      <img src="jollof_rice.jpg" alt="Jollof Rice">
+      <h3>Jollof Rice</h3>
+      <p>Classic party style</p>
+      <p>Price: $9.00</p>
+      <button onclick="addToOrder('Jollof Rice', 9, 'jollof_rice.jpg')">Add to Order</button>
+    </div>
+    <div class="dish">
+      <img src="Egusi.jpg" alt="Egusi Soup">
+      <h3>Egusi Soup</h3>
+      <p>With pounded yam</p>
+      <p>Price: $11.00</p>
+      <button onclick="addToOrder('Egusi Soup', 11, 'Egusi.jpg')">Add to Order</button>
+    </div>
+  </div>
+
+  <!-- Checkout Section -->
+  <div class="c-container">
+    <h2>Checkout</h2>
+    <div id="checkout"></div>
+    <div class="totals">
+      <p><strong>Subtotal:</strong> $<span id="subtotal">0.00</span></p>
+      <p><strong>Discount (10%):</strong> $<span id="discount">0.00</span></p>
+      <p><strong>Total:</strong> $<span id="total">0.00</span></p>
+    </div>
+  </div>
+</div>
+<script src="script.js"></script>
 </body>
 </html>
