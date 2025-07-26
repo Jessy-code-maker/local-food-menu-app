@@ -68,7 +68,7 @@ header h1 {
   display: none;
   cursor: pointer;
   color: var(--link);
-  z-index: 2;
+  z-index: 3;
   border-radius: 2px;
 }
 
@@ -288,7 +288,7 @@ h1 {
 }
 
 .dish img {
-      width: 100%;
+      width: 80%;
       height: 130px;
       object-fit: cover;
 }
@@ -475,9 +475,6 @@ a:focus {
   50% {
     transform: translateY(-5px) scale(1.05);
   }
-  0% {
-    transform: translateY(0) scale(1);
-  }
 }
 
 @keyframes slide-in {
@@ -548,7 +545,7 @@ a:focus {
     position: absolute;
   top: 60px; /* adjust to your header height */
   left: 0;
-  z-index: 1;
+  z-index: 2;
   background: var(--primary);
   width: 100%;
   padding: 1.25rem;
@@ -573,10 +570,6 @@ a:focus {
     animation: none;
   }
 
-  .plate {
-    display: none;
-  }
-
   .plate3 {
     display: block;
     position: relative;
@@ -597,13 +590,9 @@ a:focus {
     bottom: -10px;
     left: 50%;
     transform: translateX(-50%);
-    background: var(--link);
-    color: var(--text-dark);
     padding: 6px 14px;
     font-size: 13px;
     border-radius: 999px;
-    font-weight: bold;
-    border: 2px solid var(--primary);
     white-space: nowrap;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   }
