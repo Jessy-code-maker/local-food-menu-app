@@ -242,92 +242,57 @@ function showCategory(category, event) {
 };   
 
 
-// Filter dishes by category
-  function filterDishes() {
-       const selectedCategory = document.getElementById("category-select").value;
-      const dishes = document.querySelectorAll('.dish');
-       dishes.forEach(dish => {
-         const category = dish.getAttribute('data-category');
-        dish.style.display = (selectedCategory === 'all' || category === selectedCategory)
-           ? 'block' : 'none';
-      });
-     }
-// Setup responsive filter for small screens
- function setupResponsiveFilter() {
+// Handles filtering with buttons (for large screens)
+function setupCategoryButtons() {
+  const buttons = document.querySelectorAll('.category-nav button');
+  if (!buttons.length) return;
+
+  buttons.forEach(button => {
+    button.addEventListener('click', event => {
+      const category = button.getAttribute('data-category') || button.textContent.toLowerCase();
+      showCategory(category, event);
+    });
+  });
+
+  showCategory('all'); // Default view
+}
+
+// Handles filtering with dropdown (for small screens)
+function filterDishes() {
+  const selectedCategory = document.getElementById("category-select").value;
+  const dishes = document.querySelectorAll('.dish');
+  dishes.forEach(dish => {
+    const category = dish.getAttribute('data-category');
+    dish.style.display = (selectedCategory === 'all' || category === selectedCategory)
+      ? 'block' : 'none';
+  });
+}
+
+function setupResponsiveFilter() {
   const categorySelect = document.getElementById("category-select");
-  if (!categorySelect) return; // Exit if no select element found
+  if (!categorySelect) return;
 
   const mediaQuery = window.matchMedia('(max-width: 768px)');
 
   function handleScreenChange(e) {
     if (e.matches) {
-      // Small screen: attach filter on change event
+      // Small screen: dropdown filtering active
       categorySelect.addEventListener('change', filterDishes);
-      filterDishes(); // Run once on load for initial filtering
+      filterDishes(); // initial
     } else {
-      // Large screen: remove event listener and show all dishes
+      // Large screen: remove select filtering and show all
       categorySelect.removeEventListener('change', filterDishes);
       const dishes = document.querySelectorAll('.dish');
       dishes.forEach(dish => dish.style.display = 'block');
     }
   }
 
-  // Initial check
   handleScreenChange(mediaQuery);
-
-  // Listen for screen size changes dynamically
   mediaQuery.addEventListener('change', handleScreenChange);
 }
 
-function setupResponsiveCategoryButtons() {
-  const buttons = document.querySelectorAll('.category-nav button');
-  if (buttons.length === 0) return;
-
-  const mediaQuery = window.matchMedia('(max-width: 768px)');
-
-  function handleScreenChange(e) {
-    if (e.matches) {
-      // Small screen: attach click listeners for filtering
-      buttons.forEach(button => {
-        // Attach handler only if not attached yet
-        if (!button._filterHandler) {
-          button._filterHandler = function(event) {
-            const category = button.getAttribute('data-category') || button.textContent.toLowerCase();
-            showCategory(category, event);
-          };
-          button.addEventListener('click', button._filterHandler);
-        }
-      });
-      // Show all dishes initially
-      showCategory('all');
-    } else {
-      // Large screen: remove filtering listeners & show all dishes
-      buttons.forEach(button => {
-        if (button._filterHandler) {
-          button.removeEventListener('click', button._filterHandler);
-          delete button._filterHandler;
-        }
-      });
-
-      // Show all dishes
-      const dishes = document.querySelectorAll('.dish');
-      dishes.forEach(dish => dish.style.display = 'block');
-
-      // Remove active class from all buttons
-      buttons.forEach(btn => btn.classList.remove('active'));
-    }
-  }
-
-  // Run initially
-  handleScreenChange(mediaQuery);
-
-  // Listen for screen size changes dynamically
-  mediaQuery.addEventListener('change', handleScreenChange);
-}
-
+// Initial setup
 window.addEventListener('DOMContentLoaded', () => {
-  setupResponsiveFilter();        // your existing setup for <select> (can stay if you want)
-  setupResponsiveCategoryButtons();  // add this new one
+  setupCategoryButtons();     // Button filtering for large screens
+  setupResponsiveFilter();    // Dropdown filtering for small screens
 });
-
-
