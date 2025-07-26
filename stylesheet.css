@@ -481,8 +481,8 @@ a:focus {
 }
 
 footer {
-  background-color: #111;
-  color: #fff;
+  background-color: var(--secondary);
+  color: var(--text-dark);
   padding: 20px 10px;
   text-align: center;
 }
@@ -517,7 +517,7 @@ footer {
 }
 
 .social-links a {
-  color: #fff; /* Adjust for your theme */
+  color: var(--text-dark); /* Adjust for your theme */
   margin: 0 10px;
   font-size: 1.4rem;
   transition: transform 0.3s ease, color 0.3s ease;
@@ -525,7 +525,7 @@ footer {
 
 .social-links a:hover {
   transform: scale(1.2);
-  color: #ffd700; /* Gold hover color or change to your brand color */
+  color: var(--neutral-dark); /* Gold hover color or change to your brand color */
 }
 
 
