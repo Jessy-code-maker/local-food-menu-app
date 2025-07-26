@@ -465,6 +465,52 @@ a:focus {
   display: none;
 }
 
+footer {
+  background-color: #111;
+  color: #fff;
+  padding: 20px 10px;
+  text-align: center;
+}
+
+.footer-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.contact-info {
+  margin-top: 10px;
+}
+
+.contact-info a {
+  color: #ffd700; /* Gold color or adjust to match theme */
+  text-decoration: none;
+}
+
+.contact-info a:hover {
+  text-decoration: underline;
+}
+
+.social-links {
+  margin-top: 10px;
+}
+
+.social-links a {
+  margin: 0 10px;
+  display: inline-block;
+}
+
+.social-links img {
+  width: 24px;
+  height: 24px;
+  filter: brightness(0) invert(1); /* Makes icons white on dark background */
+  transition: transform 0.2s ease;
+}
+
+.social-links img:hover {
+  transform: scale(1.2);
+}
+
+
 
 
 /*ANIMATION*/
