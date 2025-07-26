@@ -67,20 +67,23 @@ header h1 {
 .hamburger {
   display: none;
   cursor: pointer;
-  color: var(--link);
   z-index: 3;
   border-radius: 2px;
+  width: 32px;
+  height: 32px;
 }
 
 .hamburger span {
   display: block;
-  height: 3px;
-  width: 25px;
+  height: 2px;
+  width: 80%;
   margin: 5px auto;
   background: var(--text-light);
   transition: all 0.3s ease;
   position: relative;
+  transition:all 0.3s ease;
 }
+    position: absolute;
 
 .menu-toggle {
   display: none;
@@ -477,19 +480,6 @@ footer {
   margin: 0 auto;
 }
 
-.contact-info {
-  margin-top: 10px;
-}
-
-.contact-info a {
-  color: #ffd700; /* Gold color or adjust to match theme */
-  text-decoration: none;
-}
-
-.contact-info a:hover {
-  text-decoration: underline;
-}
-
 .social-links {
   margin-top: 10px;
 }
@@ -510,6 +500,21 @@ footer {
   transform: scale(1.2);
 }
 
+.social-links {
+  margin-top: 10px;
+}
+
+.social-links a {
+  color: #fff; /* Adjust for your theme */
+  margin: 0 10px;
+  font-size: 1.4rem;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-links a:hover {
+  transform: scale(1.2);
+  color: #ffd700; /* Gold hover color or change to your brand color */
+}
 
 
 
