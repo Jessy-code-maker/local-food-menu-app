@@ -11,17 +11,17 @@
 </div>
 
 <body>
-      <div class="header-wrapper">
+    <div class="header-wrapper">
       <header>
         <div class="logo"><h1>Ntachiosa</h1></div>
         <input type="checkbox" class="menu-toggle" id="menu-toggle" />
         <label
-          for="menu toggle"
+          for="menu-toggle"
           class="hamburger"
           aria-label="Toggle navigation menu"
           ><span></span><span></span><span></span
         ></label>
-        <nav class="nav-items">
+        <nav class="nav-items" role="navigation" aria-label="Main navigation">
           <a href="index.html">Home</a>
           <a href="order.html">Services</a>
           <a href="#about">About</a>
@@ -35,13 +35,13 @@
 <h1>Restaurant Menu</h1>
 
   <!-- CATEGORY NAVIGATION -->
-  <div class="category-nav">
-    <button class="active" onclick="showCategory('all')">All</button>
-    <button onclick="showCategory('soup')">Soups</button>
-    <button onclick="showCategory('rice')">Rice Dishes</button>
-    <button onclick="showCategory('grilled')">Grilled</button>
-    <button onclick="showCategory('swallow')">Swallow & Soups</button>
-  </div>
+<div class="category-nav">
+  <button class="active" data-category="all">All</button>
+  <button data-category="soup">Soups</button>
+  <button data-category="rice">Rice Dishes</button>
+  <button data-category="grilled">Grilled</button>
+  <button data-category="swallow">Swallow & Soups</button>
+</div>
 
  <!-- MENU ITEMS -->
 <div class="main-container">
@@ -51,42 +51,42 @@
       <img src="pepper_soup.jpg" alt="Pepper Soup">
       <h3>Pepper Soup</h3>
       <p>Assorted Meat</p>
-      <p>Price: $8.00</p>
+      <p>Price: ₦8.00</p>
       <button onclick="addToOrder('Pepper Soup', 8, 'pepper_soup.jpg')">Add to Order</button>
     </div>
     <div class="dish" data-category="grilled">
       <img src="suya.jpg" alt="Suya">
       <h3>Suya</h3>
       <p>Spicy grilled beef</p>
-      <p>Price: $10.00</p>
+      <p>Price: ₦10.00</p>
       <button onclick="addToOrder('Suya', 10, 'suya.jpg')">Add to Order</button>
     </div>
     <div class="dish" data-category="rice">
       <img src="rice and beans.jpg" alt="Rice and Beans">
       <h3>Rice & Beans</h3>
       <p>With fried plantain</p>
-      <p>Price: $7.50</p>
+      <p>Price: ₦7.50</p>
       <button onclick="addToOrder('Rice & Beans', 7.5, 'rice and beans.jpg')">Add to Order</button>
     </div>
     <div class="dish" data-category="rice">
       <img src="White-Rice-Stew.jpg" alt="White Rice & Stew">
       <h3>White Rice & Stew</h3>
       <p>With beef stew</p>
-      <p>Price: $7.00</p>
+      <p>Price: ₦7.00</p>
       <button onclick="addToOrder('White Rice & Stew', 7, 'White-Rice-Stew.jpg')">Add to Order</button>
     </div>
     <div class="dish" data-category="rice">
       <img src="jollof_rice.jpg" alt="Jollof Rice">
       <h3>Jollof Rice</h3>
       <p>Classic party style</p>
-      <p>Price: $9.00</p>
+      <p>Price: ₦9.00</p>
       <button onclick="addToOrder('Jollof Rice', 9, 'jollof_rice.jpg')">Add to Order</button>
     </div>
     <div class="dish" data-category="swallow">
       <img src="Egusi.jpg" alt="Egusi Soup">
       <h3>Egusi Soup</h3>
       <p>With pounded yam</p>
-      <p>Price: $11.00</p>
+      <p>Price: ₦2500.00</p>
       <button onclick="addToOrder('Egusi Soup', 11, 'Egusi.jpg')">Add to Order</button>
     </div>
   </div>
@@ -97,9 +97,9 @@
       <div id="checkout-content">
     <div id="checkout"></div>
     <div class="totals">
-      <p><strong>Subtotal:</strong> $<span id="subtotal">0.00</span></p>
-      <p><strong>Discount (10%):</strong> $<span id="discount">0.00</span></p>
-      <p><strong>Total:</strong> $<span id="total">0.00</span></p>
+      <p><strong>Subtotal:</strong> ₦<span id="subtotal">0.00</span></p>
+      <p><strong>Discount (10%):</strong> ₦<span id="discount">0.00</span></p>
+      <p><strong>Total:</strong> ₦<span id="total">0.00</span></p>
     </div>
     <h2>Payment Details</h2>
 
@@ -147,3 +147,16 @@
 <script src="script.js"></script>
 </body>
 </html>
+
+<!-- this is for media query -->
+ <!-- Category Filter -->
+  <!-- <div class="filter-bar">
+    <label for="category-select">Choose a category:</label>
+    <select id="category-select" onchange="filterDishes()">
+      <option value="all">All</option>
+      <option value="soup">Soups</option>
+      <option value="rice">Rice Dishes</option>
+      <option value="grilled">Grilled</option>
+      <option value="swallow">Swallow & Soups</option>
+    </select>
+  </div> -->
