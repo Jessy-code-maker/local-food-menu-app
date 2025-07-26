@@ -457,7 +457,13 @@ a:focus {
   outline-offset: 2px;
 }
 
-
+/* Show buttons only on large screens */
+.category-nav {
+  display: flex;
+}
+.category-select-wrapper {
+  display: none;
+}
 
 
 
@@ -612,6 +618,13 @@ a:focus {
   border-style: solid;
   border-color: var(--link) transparent transparent transparent;
 }
+
+    .category-nav {
+    display: none;
+  }
+  .category-select-wrapper {
+    display: block;
+  }
 }
 
 @media screen and (max-width: 480px) {
